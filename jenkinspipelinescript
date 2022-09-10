@@ -32,7 +32,7 @@ sshagent(['7e3e369e-d613-4e78-a88b-b84117a345d4']) {
   
   }//try block closing
   catch (e){
-  SlackNotifications(currentBuild.result)
+  SlackNotifications(FAILED)
   throw e
   }
   finally{
