@@ -41,9 +41,9 @@ sshagent(['7e3e369e-d613-4e78-a88b-b84117a345d4']) {
   
   }//node closing
   
-  //Code Snippet for sending slack notifications.
+  //Code Snippet for sending SlackNotifications.
   
-  def SendSlackNotifications(String buildStatus = 'STARTED') {
+  def SlackNotifications(String buildStatus = 'STARTED') {
   // build status of null means successful
   buildStatus =  buildStatus ?: 'SUCCESS'
 
