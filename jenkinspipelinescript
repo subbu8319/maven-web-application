@@ -10,6 +10,8 @@ echo "Job name is: ${env.JOB_NAME}"
         git branch: 'development', credentialsId: '9e14761f-0836-4b46-8f2c-adde88b50610', url: 'https://github.com/subbu8319/maven-web-application.git'
     }
     try{
+      SlackNotifications('STARTED')
+
     stage('build'){
         sh "${mavenHome}/bin/mvn clean package"
     }
@@ -30,11 +32,11 @@ sshagent(['7e3e369e-d613-4e78-a88b-b84117a345d4']) {
   
   }//try block closing
   catch (e){
-  SendSlackNotifications(currentBuild.result)
+  SlackNotifications(currentBuild.result)
   throw e
   }
   finally{
-    SendSlackNotifications(currentBuild.result)
+    SlackNotifications(currentBuild.result)
 }
   
   }//node closing
